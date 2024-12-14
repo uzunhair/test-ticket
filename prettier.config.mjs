@@ -10,5 +10,6 @@ export default {
   endOfLine: "auto",
   tabWidth: 2,
   printWidth: 100,
+  semi: true,
   arrowParens: "always"
 };
