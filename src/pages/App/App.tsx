@@ -1,6 +1,13 @@
+import { useNavigate } from "react-router";
 import styles from "./App.module.css";
+import { pageLinks } from "../../shared/lib/helpers/links.ts";
 
 export function App() {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(pageLinks.tickets);
+  };
+
   return (
     <div className={styles.layout}>
       <div className={styles.card}>
@@ -13,6 +20,10 @@ export function App() {
           <div className={styles.tabitem}>
             <div className={styles.tabitemcategory}>cv</div>
             about.js
+          </div>
+          <div className={styles.tabitem} onClick={handleClick}>
+            <div className={styles.tabitemcategory}>ТЗ</div>
+            Открыть Задание
           </div>
         </div>
         <div className={styles.cardbody}>
