@@ -1,29 +1,74 @@
-import { useState } from "react";
-import reactLogo from "../../assets/react.svg";
-import viteLogo from "/vite.svg";
-import "../../App.css";
+import styles from "./App.module.css";
 
-export const App = () => {
-  const [count, setCount] = useState(0);
-
+export function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className={styles.layout}>
+      <div className={styles.card}>
+        <div className={styles.panel}>
+          <div className={styles.systembuttons}>
+            <div className={styles.systemButton} />
+            <div className={styles.systemButton} />
+            <div className={styles.systemButton} />
+          </div>
+          <div className={styles.tabitem}>
+            <div className={styles.tabitemcategory}>cv</div>
+            about.js
+          </div>
+        </div>
+        <div className={styles.cardbody}>
+          <pre>
+            <code>
+              {/* eslint-disable */}
+              <div className={styles.line}>
+                <span style={{ color: '#768390' }}>&#47;&#47; some information about me</span>
+              </div>
+              <div className={styles.line}>
+                <span style={{ color: '#F47067' }}>const</span>
+                <span style={{ color: '#ADBAC7' }}> </span>
+                <span style={{ color: '#DCBDFB' }}>aboutMe</span>
+                <span style={{ color: '#ADBAC7' }}> </span>
+                <span style={{ color: '#F47067' }}>=</span>
+                <span style={{ color: '#ADBAC7' }}> </span>
+                <span style={{ color: '#F47067' }}>function</span>
+                <span style={{ color: '#ADBAC7' }}>() &#123;</span>
+              </div>
+              <br />
+              <div className={styles.line}>
+                <span style={{ color: '#ADBAC7' }}>  </span>
+                <span style={{ color: '#F47067' }}>return</span>
+                <span style={{ color: '#ADBAC7' }}> &#123;</span>
+              </div>
+              <div className={styles.line}>
+                <span style={{ color: '#ADBAC7' }}>   name: </span>
+                <span style={{ color: '#96D0FF' }}>'Zainulabidov Uzunhair'</span>
+                <span style={{ color: '#ADBAC7' }}>,</span>
+              </div>
+              <div className={styles.line}>
+                <span style={{ color: '#ADBAC7' }}>   position: </span>
+                <span style={{ color: '#96D0FF' }}>'fullstack-developer'</span>
+                <span style={{ color: '#ADBAC7' }}>,</span>
+              </div>
+              <div className={styles.line}>
+                <span style={{ color: '#ADBAC7' }}>   website: </span>
+                <span style={{ color: '#96D0FF' }}>'https://v05.ru'</span>
+                <span style={{ color: '#ADBAC7' }}>,</span>
+              </div>
+              <div className={styles.line}>
+                <span style={{ color: '#ADBAC7' }}>   telegram: </span>
+                <span style={{ color: '#96D0FF' }}>'https://t.me/uzunhair'</span>
+                <span style={{ color: '#ADBAC7' }}>,</span>
+              </div>
+              <div className={styles.line}>
+                <span style={{ color: '#ADBAC7' }}>  &#125;</span>
+              </div>
+              <div className={styles.line}>
+                <span style={{ color: '#ADBAC7' }}>&#125;</span>
+              </div>
+              {/* eslint-enable */}
+            </code>
+          </pre>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+    </div>
   );
-};
+}
