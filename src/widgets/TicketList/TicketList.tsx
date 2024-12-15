@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { TTicket, Ticket } from "src/shared/ui/Ticket";
+import { TicketSkeleton } from "src/shared/ui/Ticket/TicketSkeleton.tsx";
 import styles from "./TicketList.module.scss";
 
 export const TicketList = () => {
@@ -30,7 +31,11 @@ export const TicketList = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className={styles.tickets}>
+        <TicketSkeleton />
+      </div>
+    );
   }
 
   if (error) {
