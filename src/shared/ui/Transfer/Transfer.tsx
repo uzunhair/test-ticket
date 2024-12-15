@@ -22,6 +22,10 @@ export const Transfer = () => {
     });
   };
 
+  const handleClickOnly = (id: number) => {
+    setSelectedItems([id]);
+  };
+
   return (
     <div>
       <h3 className={stylesSidebar.title}>Количество пересадок</h3>
@@ -38,6 +42,20 @@ export const Transfer = () => {
             <label className={styles.formCheckLabel} htmlFor={item.id.toString()}>
               {item.name}
             </label>
+
+            <div
+              className={styles.only}
+              role="button"
+              tabIndex={0}
+              onClick={() => handleClickOnly(item.id)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  handleClickOnly(item.id);
+                }
+              }}
+            >
+              только
+            </div>
           </div>
         ))}
       </div>

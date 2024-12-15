@@ -1,12 +1,20 @@
-
 .formCheck {
   margin-bottom: .25rem;
   min-height: 1.6rem;
   padding-left: 1.5rem;
+  position: relative;
 
   @media (max-width: 1200px) {
     display: inline-block;
     margin-right: 1rem;
+
+    .only {
+      display: none;
+    }
+  }
+
+  &:hover .only {
+    opacity: 1;
   }
 }
 
@@ -44,4 +52,16 @@
     border-color: #6366f1;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
   }
+}
+
+.only {
+  color: #6366f1;
+  text-transform: uppercase;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
 }
