@@ -1,12 +1,12 @@
-import { useState } from "react";
 import classNames from "classnames";
+import { useTicketsContext } from "src/pages/TicketsPage";
 import stylesSidebar from "src/widgets/Sidebar/Sidebar.module.scss";
 import styles from "./Currency.module.scss";
 
-type TCurrency = "rub" | "usd" | "eur";
+export type TCurrency = "rub" | "usd" | "eur";
 
 export const Currency = () => {
-  const [selectedCurrency, setSelectedCurrency] = useState<TCurrency>("rub");
+  const { selectedCurrency, setSelectedCurrency } = useTicketsContext();
 
   const handleCurrencyChange = (currency: TCurrency) => {
     setSelectedCurrency(currency);

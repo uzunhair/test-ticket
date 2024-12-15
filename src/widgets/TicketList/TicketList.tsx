@@ -8,7 +8,7 @@ export const TicketList = () => {
   const [tickets, setTickets] = useState<TTicket[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const { selectedItems } = useTicketsContext();
+  const { selectedItems, selectedCurrency } = useTicketsContext();
 
   useEffect(() => {
     const fetchTickets = async () => {
@@ -54,7 +54,7 @@ export const TicketList = () => {
   return (
     <div className={styles.tickets}>
       {filteredTickets.map((ticket, index) => (
-        <Ticket key={index} {...ticket} />
+        <Ticket key={index} {...ticket} currency={selectedCurrency} />
       ))}
     </div>
   );

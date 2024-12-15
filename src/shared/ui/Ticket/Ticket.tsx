@@ -1,6 +1,8 @@
 import viteLogo from "src/assets/vite.svg";
-import { carrierName } from "src/shared/ui/Ticket/lib/helpers/carrierName.ts";
-import { getStopsDeclension } from "src/shared/ui/Ticket/lib/helpers/getStopsDeclension.tsx";
+import { TCurrency } from "src/shared/ui/Currency/Currency.tsx";
+import { carrierName } from "src/shared/ui/Ticket/lib/helpers/carrierName";
+import { currencyConversion } from "src/shared/ui/Ticket/lib/helpers/currencyConversion";
+import { getStopsDeclension } from "src/shared/ui/Ticket/lib/helpers/getStopsDeclension";
 import styles from "./Ticket.module.scss";
 
 export type TTicket = {
@@ -15,6 +17,7 @@ export type TTicket = {
   carrier: string;
   stops: number;
   price: number;
+  currency: TCurrency;
 };
 
 export const Ticket = ({
@@ -29,9 +32,11 @@ export const Ticket = ({
   stops,
   price,
   carrier,
+  currency,
 }: TTicket) => {
   const stopsText = getStopsDeclension(stops);
   const carrierText = carrierName(carrier);
+  const currencyText = currencyConversion(price, currency);
 
   return (
     <div className={styles.ticket}>
@@ -44,7 +49,7 @@ export const Ticket = ({
         </div>
         <button type="button" className={styles.btn}>
           Купить <span className={styles.btnDivider} />
-          за {price} ₽
+          за {currencyText}
         </button>
       </div>
       <div className={styles.divider} />
