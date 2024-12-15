@@ -3,6 +3,7 @@ import { TCurrency } from "src/shared/ui/Currency/Currency.tsx";
 import { calculateDuration } from "src/shared/ui/Ticket/lib/helpers/calculateDuration.ts";
 import { carrierName } from "src/shared/ui/Ticket/lib/helpers/carrierName";
 import { currencyConversion } from "src/shared/ui/Ticket/lib/helpers/currencyConversion";
+import { formatDate } from "src/shared/ui/Ticket/lib/helpers/formatDate.ts";
 import { getStopsDeclension } from "src/shared/ui/Ticket/lib/helpers/getStopsDeclension";
 import styles from "./Ticket.module.scss";
 
@@ -38,12 +39,14 @@ export const Ticket = ({
   const stopsText = getStopsDeclension(stops);
   const carrierText = carrierName(carrier);
   const currencyText = currencyConversion(price, currency);
-  const durationtext = calculateDuration(
+  const durationText = calculateDuration(
     departure_date,
     departure_time,
     arrival_date,
     arrival_time
   );
+  const departureText = formatDate(departure_date);
+  const arrivalText = formatDate(arrival_date);
 
   return (
     <div className={styles.ticket}>
@@ -66,7 +69,7 @@ export const Ticket = ({
           <div className={styles.name}>
             {origin} {origin_name}
           </div>
-          <div className={styles.date}>{departure_date}</div>
+          <div className={styles.date}>{departureText}</div>
         </div>
         <div className={styles.stops}>
           <div className={styles.planeTime}>
@@ -78,7 +81,7 @@ export const Ticket = ({
                   d="m16.954 9.793-2.719 1.268c-2-.64-4.862-1.236-7.398-2.056l-1.201.55c1.32 1.029 3.135 2.33 4.52 3.408L7.439 14.23c-1.173-.248-2.418-.338-3.349-.532-.506-.106-.816.339-.338.71 2.256 1.759 3.159 2.469 3.159 2.469.392.305.875.497 1.343.283l12.445-5.803c.906-.46.871-1.106.64-1.629-.547-1.173-2.049-1.003-4.384.064Z"
                 />
               </svg>
-              <div>в пути {durationtext}</div>
+              <div>в пути {durationText}</div>
               <svg width="24" height="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path
                   fillRule="evenodd"
@@ -95,7 +98,7 @@ export const Ticket = ({
           <div className={styles.name}>
             {destination} {destination_name}
           </div>
-          <div className={styles.date}>{arrival_date}</div>
+          <div className={styles.date}>{arrivalText}</div>
         </div>
       </div>
     </div>
