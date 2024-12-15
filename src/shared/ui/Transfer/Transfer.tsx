@@ -13,14 +13,16 @@ export const Transfer = () => {
   return (
     <div>
       <h3 className={stylesSidebar.title}>Количество пересадок</h3>
-      {items.map((item) => (
-        <div key={item.id} className={styles.formCheck}>
-          <input className={styles.formCheckInput} type="checkbox" id={item.id.toString()} />
-          <label className={styles.formCheckLabel} htmlFor={item.id.toString()}>
-            {item.name}
-          </label>
-        </div>
-      ))}
+      <div className={styles.form}>
+        {items.map((item) => (
+          <div key={item.id} className={styles.formCheck}>
+            <input className={styles.formCheckInput} type="checkbox" id={item.id.toString()} />
+            <label className={styles.formCheckLabel} htmlFor={item.id.toString()}>
+              {item.name}
+            </label>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

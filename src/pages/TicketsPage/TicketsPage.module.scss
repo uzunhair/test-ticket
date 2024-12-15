@@ -1,16 +1,21 @@
 .layout {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  --gutter: 1.5rem;
+  @media (min-width: 992px) {
+    --gutter: 3rem;
+  }
+
+  padding-top: var(--gutter);
+  padding-bottom: var(--gutter);
 }
 
 .container {
   width: 100%;
-  padding-right: calc(var(--gutter-x)* .5);
-  padding-left: calc(var(--gutter-x)* .5);
+  padding-right: var(--gutter-x);
+  padding-left: var(--gutter-x);
   margin-right: auto;
   margin-left: auto;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 992px) {
     max-width: 1280px;
   }
 }
@@ -34,11 +39,11 @@
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  height: calc(var(--gutter) * 2);
+  padding: calc(var(--gutter) * 0.25);
   will-change: filter;
   transition: filter 300ms;
-  margin-bottom: 3rem;
+  margin-bottom: var(--gutter);
 }
 
 .logo:hover {

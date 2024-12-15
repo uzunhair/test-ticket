@@ -39,7 +39,8 @@ export const Ticket = ({
           </div>
         </div>
         <button type="button" className={styles.btn}>
-          Купить <br /> за {price} ₽
+          Купить <span className={styles.btnDivider} />
+          за {price} ₽
         </button>
       </div>
       <div className={styles.divider} />
