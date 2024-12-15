@@ -1,5 +1,6 @@
 import viteLogo from "src/assets/vite.svg";
 import { carrierName } from "src/shared/ui/Ticket/lib/helpers/carrierName.ts";
+import { getStopsDeclension } from "src/shared/ui/Ticket/lib/helpers/getStopsDeclension.tsx";
 import styles from "./Ticket.module.scss";
 
 export type TTicket = {
@@ -29,13 +30,16 @@ export const Ticket = ({
   price,
   carrier,
 }: TTicket) => {
+  const stopsText = getStopsDeclension(stops);
+  const carrierText = carrierName(carrier);
+
   return (
     <div className={styles.ticket}>
       <div className={styles.action}>
         <div className={styles.company}>
           <img src={viteLogo} className={styles.logo} alt="Turkish AirLines" />
           <div className={styles.companyFit}>
-            <span>{carrierName(carrier)}</span>
+            <span>{carrierText}</span>
           </div>
         </div>
         <button type="button" className={styles.btn}>
@@ -72,7 +76,7 @@ export const Ticket = ({
               </svg>
             </div>
           </div>
-          {stops} пересадка
+          {stopsText}
         </div>
         <div className={styles.arrival}>
           <div className={styles.time}>{arrival_time}</div>
