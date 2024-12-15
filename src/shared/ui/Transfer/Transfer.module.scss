@@ -1,0 +1,41 @@
+.formCheck {
+  margin-bottom: .25rem;
+  min-height: 1.6rem;
+  padding-left: 1.5rem;
+}
+
+.formCheckInput {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  margin-top: .3rem;
+  vertical-align: top;
+  appearance: none;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 2px solid #b4b7c9;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+  print-color-adjust: exact;
+  float: left;
+  margin-left: -1.5rem;
+  border-radius: .1875em;
+
+  &:focus {
+    border-color: rgba(99,102,241,.35);
+    outline: 0;
+    box-shadow: none;
+  }
+
+  &:active {
+    filter: brightness(90%);
+  }
+
+  &:checked[type=checkbox] {
+    background-color: #6366f1;
+    border-color: #6366f1;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+  }
+}

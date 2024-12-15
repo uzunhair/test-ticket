@@ -1,0 +1,20 @@
+.sidebar {
+  max-width: 320px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  color: var(--body-color);
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border-radius: var(--card-border-radius);
+  box-shadow: 0 .275rem .75rem -0.0625rem rgba(11,15,25,.06),0 .125rem .4rem -0.0625rem rgba(11,15,25,.03) !important;
+  padding: 1rem;
+}
+
+.title {
+  font-weight: 500;
+  color: #33354d;
+  margin-bottom: .625rem;
+}
