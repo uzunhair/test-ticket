@@ -1,11 +1,11 @@
 .layout {
   --gutter: 1.5rem;
+  padding-top: var(--gutter);
+  padding-bottom: var(--gutter);
+
   @media (min-width: 992px) {
     --gutter: 3rem;
   }
-
-  padding-top: var(--gutter);
-  padding-bottom: var(--gutter);
 }
 
 .container {
