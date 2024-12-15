@@ -80,6 +80,10 @@
 
 .logo {
   width: 1.25rem;
+
+  @media (min-width: 992px) {
+    width: 1.75rem;
+  }
 }
 
 .btn {
