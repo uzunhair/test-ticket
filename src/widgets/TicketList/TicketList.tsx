@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTicketsContext } from "src/pages/TicketsPage";
 import { TTicket, Ticket } from "src/shared/ui/Ticket";
 import { TicketSkeleton } from "src/shared/ui/Ticket/TicketSkeleton.tsx";
 import styles from "./TicketList.module.scss";
@@ -7,6 +8,7 @@ export const TicketList = () => {
   const [tickets, setTickets] = useState<TTicket[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const { selectedItems } = useTicketsContext();
 
   useEffect(() => {
     const fetchTickets = async () => {
@@ -30,6 +32,13 @@ export const TicketList = () => {
     fetchTickets();
   }, []);
 
+  const filteredTickets = tickets.filter((ticket) => {
+    if (selectedItems.length === 0 || selectedItems.includes(10)) {
+      return true;
+    }
+    return selectedItems.includes(ticket.stops);
+  });
+
   if (loading) {
     return (
       <div className={styles.tickets}>
@@ -44,7 +53,7 @@ export const TicketList = () => {
 
   return (
     <div className={styles.tickets}>
-      {tickets.map((ticket, index) => (
+      {filteredTickets.map((ticket, index) => (
         <Ticket key={index} {...ticket} />
       ))}
     </div>

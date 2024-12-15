@@ -9,6 +9,7 @@
 
   @media (min-width: 992px) {
     flex-direction: row;
+    min-height: 167px;
   }
 
   z-index: 49;
@@ -121,8 +122,11 @@
   gap: 1rem;
   line-height: 1.2;
 
-  .companyFit {
+  @media (min-width: 992px) {
+    min-height: 40px;
+  }
 
+  .companyFit {
     @media (min-width: 992px) {
       flex: 0 0 0;
     }

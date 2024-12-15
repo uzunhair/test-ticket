@@ -1,21 +1,16 @@
-import { useState } from "react";
+import { useTicketsContext } from "src/pages/TicketsPage";
 import stylesSidebar from "src/widgets/Sidebar/Sidebar.module.scss";
 import styles from "./Transfer.module.scss";
 
-interface TransferProps {
-  onSelectionChange: (selectedItems: number[]) => void;
-}
-
-export const Transfer = ({ onSelectionChange }: TransferProps) => {
+export const Transfer = () => {
   const items = [
-    { id: 1, name: "Все" },
-    { id: 2, name: "Без пересадок" },
-    { id: 3, name: "1 пересадка" },
-    { id: 4, name: "2 пересадки" },
-    { id: 5, name: "3 пересадки только" },
+    { id: 10, name: "Все" },
+    { id: 0, name: "Без пересадок" },
+    { id: 1, name: "1 пересадка" },
+    { id: 2, name: "2 пересадки" },
+    { id: 3, name: "3 пересадки" },
   ];
-
-  const [selectedItems, setSelectedItems] = useState<number[]>([]);
+  const { selectedItems, setSelectedItems } = useTicketsContext();
 
   const handleCheckboxChange = (id: number) => {
     setSelectedItems((prevSelectedItems) => {
@@ -25,7 +20,6 @@ export const Transfer = ({ onSelectionChange }: TransferProps) => {
         return [...prevSelectedItems, id];
       }
     });
-    onSelectionChange(selectedItems);
   };
 
   return (
