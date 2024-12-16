@@ -13,7 +13,7 @@ export const TicketList = () => {
   useEffect(() => {
     const fetchTickets = async () => {
       try {
-        const response = await fetch("src/data/tickets.json"); // Укажите правильный путь к вашему JSON файлу
+        const response = await fetch("./tickets.json");
         if (!response.ok) {
           throw new Error("Не удалось получить ответ");
         }
